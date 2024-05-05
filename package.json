@@ -1,7 +1,10 @@
 {
   "name": "obj-kvs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Store objects in the cloud or locally",
+  "bin": {
+    "objkvs": "./cli.js"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.1608.0",
+    "commander": "^12.0.0",
     "mkdirp": "^3.0.1",
     "node-gzip": "^1.1.2"
   }
