@@ -51,7 +51,7 @@ module.exports = {
     newFlatFileAppenderController: (basePath) => {
         return new AppenderController(new FlatFileService(basePath));
     },
-    newSAppenderController: (region = "us-east-1", acl = "private") => {
+    newS3AppenderController: (region = "us-east-1", acl = "private") => {
         return new AppenderController(new S3Service(region, acl));
     }
 };
