@@ -37,13 +37,12 @@ class S3Service {
         };
         try {
             const data = await this.s3.getObject(params).promise();
-            console.log("DSAfsa")
-            console.log(data)
+
             const meta = {
                 timestamp: data.Metadata.timestamp,
                 ttl: data.Metadata.ttl,
-                mimeType: data.Metadata.mimeType,
-                gzip: data.Metadata.gzip
+                mimeType: data.Metadata.mimetype,
+                gzip: data.Metadata.gzip === "true" ? true : false
             };
             if (!meta.ttl || (Date.now() < parseInt(meta.timestamp) + parseInt(meta.ttl))) {
                 return { object: data.Body, meta };
