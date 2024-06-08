@@ -1,4 +1,5 @@
 const AWS = require('aws-sdk');
+const stringToRegExp = require('string-to-regexp.js');
 
 class S3Service {
     constructor(region, acl) {
@@ -75,7 +76,14 @@ class S3Service {
         try {
             const data = await this.s3.listObjectsV2(params).promise();
             const results = [];
+            let regex;
+            if(key){
+                regex = stringToRegExp(key);
+            }
             for (let obj of data.Contents) {
+                if(regex && !regex.test(obj.Key)){
+                    continue;
+                }
                 const getObjectParams = {
                     Bucket: namespace,
                     Key: obj.Key
