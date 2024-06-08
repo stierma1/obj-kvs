@@ -1,5 +1,5 @@
 const AWS = require('aws-sdk');
-const stringToRegExp = require('string-to-regexp.js');
+const stringToRegExp = require('string-to-regexp');
 
 class S3Service {
     constructor(region, acl) {

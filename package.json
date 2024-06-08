@@ -1,6 +1,6 @@
 {
   "name": "obj-kvs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Store objects in the cloud or locally",
   "bin": {
     "objkvs": "./cli.js"
